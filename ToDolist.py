@@ -2,8 +2,8 @@ class ToDoList:
     def __init__(self):
         self.tasks = []
 
-    def add_task(self, task, deadline, priority):
-        self.tasks.append({"task": task, "deadline": deadline, "priority": priority})
+    def add_task(self, task, deadline, preference):
+        self.tasks.append({"task": task, "deadline": deadline, "preference": preference})
         print("Task added successfully.")
 
     def view_tasks(self):
@@ -12,7 +12,7 @@ class ToDoList:
         else:
             print("Tasks:")
             for idx, task in enumerate(self.tasks, start=1):
-                print(f"{idx}. {task['task']} - Deadline: {task['deadline']}, Priority: {task['priority']}")
+                print(f"{idx}. {task['task']} - Deadline: {task['deadline']}, Preference: {task['preference']}")
 
     def mark_completed(self, task_index):
         if 1 <= task_index <= len(self.tasks):
@@ -43,8 +43,8 @@ def main():
         if choice == '1':
             task = input("Enter task: ")
             deadline = input("Enter deadline (YYYY-MM-DD): ")
-            priority = input("Enter priority (High, Medium, Low): ")
-            todo_list.add_task(task, deadline, priority)
+            preference = input("Enter preference (High, Medium, Low): ")
+            todo_list.add_task(task, deadline, preference)
         elif choice == '2':
             todo_list.view_tasks()
         elif choice == '3':
